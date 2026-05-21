@@ -31,23 +31,15 @@ export const Categories: React.FC = () => {
     const cloudName = adminSettings?.cloudinaryCloudName || import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
     const uploadPreset = adminSettings?.cloudinaryUploadPreset || import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
 
-    const MAX_CLOUDINARY_SIZE = 5 * 1024 * 1024; // 5MB
-    const MAX_LOCAL_SIZE = 1 * 1024 * 1024; // 1MB
-
     if (!cloudName || !uploadPreset) {
       // Fallback: base64 local
-      if (file.size > MAX_LOCAL_SIZE) {
-        setImageError("Local files must be under 1MB to avoid database size limits. Configure Cloudinary in Settings for larger images.");
+      if (file.size > 200 * 1024) {
+        setImageError("File too large. Configure Cloudinary in Settings for larger images.");
         return;
       }
       const reader = new FileReader();
       reader.onloadend = () => { if (typeof reader.result === "string") setImage(reader.result); };
       reader.readAsDataURL(file);
-      return;
-    }
-
-    if (file.size > MAX_CLOUDINARY_SIZE) {
-      setImageError(`Image "${file.name}" exceeds the 5MB size limit.`);
       return;
     }
 
