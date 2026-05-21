@@ -7,26 +7,19 @@ import { ReviewSlider } from "../components/ReviewSlider";
 import { Newsletter } from "../components/Newsletter";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DEFAULT_HERO_IMAGES = [
-  "https://images.unsplash.com/photo-1583521214690-73421a1829a9?auto=format&fit=crop&w=1920&q=80",
-  "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1920&q=80",
-  "https://images.unsplash.com/photo-1617696618132-9c2af5b37e01?auto=format&fit=crop&w=1920&q=80",
-  "https://images.unsplash.com/photo-1612731955729-c57bfb7b5c26?auto=format&fit=crop&w=1920&q=80",
-  "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1920&q=80"
-];
-
 export const Home: React.FC = () => {
   const { products, categories, adminSettings } = useAppContext();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const HERO_IMAGES = (adminSettings?.heroBannerImages && adminSettings.heroBannerImages.length > 0) ? adminSettings.heroBannerImages : DEFAULT_HERO_IMAGES;
+  const HERO_IMAGES = adminSettings?.heroBannerImages || [];
 
-  // Auto transition every 5 seconds
+  // Auto transition every 5 seconds if images are present
   useEffect(() => {
+    if (HERO_IMAGES.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [HERO_IMAGES.length]);
 
   // Filter lists
   const trendingProducts = products.filter((p) => p.trending).slice(0, 4);
@@ -48,18 +41,22 @@ export const Home: React.FC = () => {
       <section className="relative h-[85vh] md:h-[92vh] w-full flex items-center justify-center bg-black overflow-hidden">
         {/* BG Slideshow */}
         <div className="absolute inset-0 z-0 bg-black">
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={currentSlide}
-              src={HERO_IMAGES[currentSlide]}
-              alt="Fashion campaign banner"
-              initial={{ opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 0.55, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.97 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
-              className="w-full h-full object-cover select-none pointer-events-none"
-            />
-          </AnimatePresence>
+          {HERO_IMAGES.length > 0 ? (
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentSlide}
+                src={HERO_IMAGES[currentSlide]}
+                alt="Fashion campaign banner"
+                initial={{ opacity: 0, scale: 1.04 }}
+                animate={{ opacity: 0.55, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.97 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                className="w-full h-full object-cover select-none pointer-events-none"
+              />
+            </AnimatePresence>
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-neutral-950 via-[#0a0f1d] to-[#1e1b4b]/20 opacity-70" />
+          )}
           <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-black/30" />
         </div>
 

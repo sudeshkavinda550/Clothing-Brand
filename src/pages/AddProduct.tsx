@@ -75,9 +75,12 @@ export const AddProduct: React.FC = () => {
     const cloudName = adminSettings?.cloudinaryCloudName;
     const uploadPreset = adminSettings?.cloudinaryUploadPreset;
 
+    const MAX_CLOUDINARY_SIZE = 5 * 1024 * 1024; // 5MB
+    const MAX_LOCAL_SIZE = 1 * 1024 * 1024; // 1MB
+
     // Check if Cloudinary is configured
     if (!cloudName || !uploadPreset) {
-      setImageError("Configure Cloudinary settings in System Settings to upload images. Falling back to local files under 200KB.");
+      setImageError("Configure Cloudinary settings in System Settings to upload images. Falling back to local files under 1MB.");
       
       // Fallback: local base64 files
       Array.from(files).forEach((file) => {
@@ -85,8 +88,8 @@ export const AddProduct: React.FC = () => {
           setImageError("Only image files are allowed.");
           return;
         }
-        if (file.size > 200 * 1024) {
-          setImageError("Local files must be under 200KB. Set up Cloudinary settings for larger images.");
+        if (file.size > MAX_LOCAL_SIZE) {
+          setImageError("Local files must be under 1MB to avoid database storage limits. Set up Cloudinary for larger images up to 5MB.");
           return;
         }
 
@@ -107,6 +110,10 @@ export const AddProduct: React.FC = () => {
       for (const file of Array.from(files)) {
         if (!file.type.startsWith("image/")) {
           setImageError("Only image files are allowed.");
+          continue;
+        }
+        if (file.size > MAX_CLOUDINARY_SIZE) {
+          setImageError(`Image "${file.name}" exceeds the 5MB size limit.`);
           continue;
         }
 

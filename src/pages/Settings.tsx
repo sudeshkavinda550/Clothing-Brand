@@ -36,16 +36,27 @@ export const Settings: React.FC = () => {
     const cloudName = cloudinaryCloudName || import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
     const uploadPreset = cloudinaryUploadPreset || import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
 
+    const MAX_CLOUDINARY_SIZE = 5 * 1024 * 1024; // 5MB
+    const MAX_LOCAL_SIZE = 1 * 1024 * 1024; // 1MB
+
     setBannerUploading(true);
     try {
       for (const file of Array.from(files)) {
         if (!file.type.startsWith("image/")) continue;
 
         if (!cloudName || !uploadPreset) {
-          if (file.size > 200 * 1024) { setBannerError("File too large. Configure Cloudinary first."); continue; }
+          if (file.size > MAX_LOCAL_SIZE) {
+            setBannerError("Local files must be under 1MB to avoid database size limits. Configure Cloudinary first.");
+            continue;
+          }
           const reader = new FileReader();
           reader.onloadend = () => { if (typeof reader.result === "string") setHeroBannerImages(prev => [...prev, reader.result as string]); };
           reader.readAsDataURL(file);
+          continue;
+        }
+
+        if (file.size > MAX_CLOUDINARY_SIZE) {
+          setBannerError(`Image "${file.name}" exceeds the 5MB size limit.`);
           continue;
         }
 

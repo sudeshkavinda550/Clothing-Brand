@@ -39,11 +39,5 @@ export const DEFAULT_SETTINGS: AdminSettings = {
   greetingTemplate: "Hello, I want to order:\n\n*Product:* {productName}\n*Color:* {color}\n*Size:* {size}\n*Quantity:* {quantity}\n*Price:* {price}\n\nPlease confirm availability.",
   cloudinaryCloudName: "divjuliq6",
   cloudinaryUploadPreset: "clothing-shop",
-  heroBannerImages: [
-    "https://images.unsplash.com/photo-1583521214690-73421a1829a9?auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1617696618132-9c2af5b37e01?auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1920&q=80",
-    "https://images.unsplash.com/photo-1612731955729-c57bfb7b5c26?auto=format&fit=crop&w=1920&q=80"
-  ]
+  heroBannerImages: []
 };

@@ -117,7 +117,8 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
             const migrated: AdminSettings = {
               ...globalSettings,
               businessName: DEFAULT_SETTINGS.businessName,
-              whatsappNumber: DEFAULT_SETTINGS.whatsappNumber
+              whatsappNumber: DEFAULT_SETTINGS.whatsappNumber,
+              heroBannerImages: []
             };
             setDoc(doc(db!, "settings", "global"), migrated);
           } else {
