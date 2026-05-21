@@ -42,6 +42,7 @@ export interface AdminSettings {
   greetingTemplate: string;
   cloudinaryCloudName?: string;
   cloudinaryUploadPreset?: string;
+  heroBannerImages: string[];
 }
 
 export interface AnalyticsData {
