@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Mail, CheckCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useAppContext } from "../context/AppContext";
 
 export const Newsletter: React.FC = () => {
+  const { adminSettings } = useAppContext();
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
 
@@ -29,7 +31,7 @@ export const Newsletter: React.FC = () => {
           Exclusive Access
         </span>
         <h3 className="font-heading font-bold text-2xl md:text-3xl tracking-tight">
-          Join the AURA Collective
+          Join the {adminSettings.businessName} Collective
         </h3>
         <p className="text-sm text-neutral-400 leading-relaxed">
           Subscribe to receive notifications for private capsule collections, restocks, and exclusive editorial campaigns.

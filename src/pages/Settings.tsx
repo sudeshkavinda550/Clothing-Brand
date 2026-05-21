@@ -121,12 +121,12 @@ export const Settings: React.FC = () => {
                 <span className="group relative text-neutral-600 hover:text-neutral-400 cursor-help">
                   <HelpCircle className="h-3 w-3" />
                   <span className="absolute bottom-full left-1/2 -translate-x-1/2 w-44 bg-neutral-950 text-neutral-455 text-[9px] p-2 rounded-xl border border-neutral-850 opacity-0 pointer-events-none group-hover:opacity-100 transition z-10 leading-normal">
-                    Include country code, no spaces (e.g. +94771234567)
+                    Include country code, no spaces (e.g. +94775286498)
                   </span>
                 </span>
               </label>
               <input type="text" value={whatsappNumber} onChange={(e) => setWhatsappNumber(e.target.value)}
-                placeholder="+94771234567"
+                placeholder="+94775286498"
                 className="w-full px-4 py-3 bg-[#070b13] border border-neutral-900 rounded-2xl text-xs text-white focus:outline-none focus:border-indigo-650 font-mono" required />
             </div>
             <div className="space-y-1.5">

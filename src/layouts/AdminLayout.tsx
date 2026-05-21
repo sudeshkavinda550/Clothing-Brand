@@ -137,7 +137,7 @@ export const AdminLayout: React.FC = () => {
                 <div className="flex items-center gap-2.5">
                   <ShieldCheck className="h-5 w-5 text-indigo-500" />
                   <span className="font-heading font-extrabold tracking-wider uppercase text-xs text-neutral-100">
-                    AURA Control
+                    {adminSettings.businessName} Control
                   </span>
                 </div>
                 <button

@@ -91,7 +91,7 @@ export const Contact: React.FC = () => {
                   Showroom Address
                 </h4>
                 <p className="text-xs font-semibold text-neutral-800 dark:text-neutral-200">
-                  AURA Noir HQ, Colombo 07, Sri Lanka
+                  rajanganaya, thambuththegama, anuradhapura
                 </p>
               </div>
             </div>
@@ -105,10 +105,10 @@ export const Contact: React.FC = () => {
                   Customer Email
                 </h4>
                 <a
-                  href="mailto:support@auranoir.com"
+                  href="mailto:support@rashifashion.com"
                   className="text-xs font-semibold text-neutral-800 dark:text-neutral-200 hover:text-indigo-600 hover:underline"
                 >
-                  support@auranoir.com
+                  support@rashifashion.com
                 </a>
               </div>
             </div>
@@ -122,7 +122,7 @@ export const Contact: React.FC = () => {
                   Operating Hours
                 </h4>
                 <p className="text-xs font-semibold text-neutral-800 dark:text-neutral-200">
-                  Mon - Sat: 9:00 AM - 6:00 PM (GMT+5:30)
+                  Mon - Sat: 9:00 AM - 6:00 PM
                 </p>
               </div>
             </div>

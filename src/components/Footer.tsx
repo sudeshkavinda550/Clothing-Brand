@@ -4,7 +4,7 @@ import { Instagram, Send, MapPin, Phone, Mail } from "lucide-react";
 import { useAppContext } from "../context/AppContext";
 
 export const Footer: React.FC = () => {
-  const { adminSettings } = useAppContext();
+  const { adminSettings, categories } = useAppContext();
   
   return (
     <footer className="bg-neutral-100 dark:bg-[#070a13] border-t border-neutral-200 dark:border-neutral-900 pt-16 pb-8 transition-colors duration-300">
@@ -43,10 +43,21 @@ export const Footer: React.FC = () => {
             Collections
           </h4>
           <ul className="space-y-2.5 text-xs text-neutral-500 dark:text-neutral-400">
-            <li><Link to="/shop?category=men" className="hover:text-indigo-600 dark:hover:text-indigo-400">Men's Apparel</Link></li>
-            <li><Link to="/shop?category=women" className="hover:text-indigo-600 dark:hover:text-indigo-400">Women's Apparel</Link></li>
-            <li><Link to="/shop?category=sneakers" className="hover:text-indigo-600 dark:hover:text-indigo-400">Footwear / Sneakers</Link></li>
-            <li><Link to="/shop?category=accessories" className="hover:text-indigo-600 dark:hover:text-indigo-400">Accessories</Link></li>
+            {categories.length > 0 ? (
+              categories.slice(0, 4).map((c) => (
+                <li key={c.slug}>
+                  <Link to={`/shop?category=${c.slug}`} className="hover:text-indigo-600 dark:hover:text-indigo-400">
+                    {c.name}
+                  </Link>
+                </li>
+              ))
+            ) : (
+              <li>
+                <Link to="/shop" className="hover:text-indigo-600 dark:hover:text-indigo-400">
+                  Shop All
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
 
@@ -69,7 +80,7 @@ export const Footer: React.FC = () => {
           </h4>
           <div className="flex items-start gap-3 text-xs text-neutral-500 dark:text-neutral-400">
             <MapPin className="h-4 w-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-            <span>12 Atelier Boulevard, SoHo District, New York, NY</span>
+            <span>rajanganaya, thambuththegama, anuradhapura</span>
           </div>
           <div className="flex items-center gap-3 text-xs text-neutral-500 dark:text-neutral-400">
             <Phone className="h-4 w-4 text-indigo-500 flex-shrink-0" />
@@ -84,7 +95,7 @@ export const Footer: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 border-t border-neutral-200 dark:border-neutral-900 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-neutral-400 dark:text-neutral-500">
         <div>
-          © {new Date().getFullYear()} {adminSettings.businessName}. All rights reserved. Designed for elite aesthetics.
+          © {new Date().getFullYear()} {adminSettings.businessName}. All rights reserved.
         </div>
         <div className="flex gap-4">
           <span className="hover:text-neutral-600 dark:hover:text-white cursor-pointer">Privacy Policy</span>

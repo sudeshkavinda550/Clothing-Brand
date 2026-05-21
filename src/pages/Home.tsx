@@ -316,7 +316,7 @@ export const Home: React.FC = () => {
             Showroom Aesthetic
           </h2>
           <p className="text-xs text-neutral-500 dark:text-neutral-450">
-            Tag us <span className="text-indigo-600 dark:text-indigo-400 font-semibold">@AuraNoirLabel</span> to get featured.
+            Tag us <span className="text-indigo-600 dark:text-indigo-400 font-semibold">@{adminSettings.businessName.replace(/\s+/g, "")}Label</span> to get featured.
           </p>
         </motion.div>
 

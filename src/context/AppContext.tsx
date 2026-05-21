@@ -355,7 +355,7 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     } else {
       // Local fallback
       const lowerEmail = email.toLowerCase().trim();
-      if ((lowerEmail === "admin@auranoir.com" && pass === "admin123") || (lowerEmail === "admin" && pass === "admin123")) {
+      if ((lowerEmail === "admin@rashifashion.com" && pass === "admin123") || (lowerEmail === "admin" && pass === "admin123")) {
         setAdminLoggedIn(true);
         localStorage.setItem("aura_admin_session", "true");
         return true;

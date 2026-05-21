@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Sparkles, Heart, Shield, RefreshCw } from "lucide-react";
+import { useAppContext } from "../context/AppContext";
 
 export const AboutUs: React.FC = () => {
+  const { adminSettings } = useAppContext();
   const stats = [
     { label: "Sustainable Cotton", value: "100%" },
     { label: "Garment Lifespan", value: "5+ Yrs" },
@@ -47,7 +49,7 @@ export const AboutUs: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xs sm:text-sm text-neutral-350 max-w-lg mx-auto font-medium"
           >
-            AURA Noir is a design studio focused on architectural tailoring, heavy-duty silhouettes, and custom fabrications for women's luxury streetwear.
+            {adminSettings.businessName} is a design studio focused on premium quality fashion, custom designs, and everyday styling.
           </motion.p>
         </div>
       </section>

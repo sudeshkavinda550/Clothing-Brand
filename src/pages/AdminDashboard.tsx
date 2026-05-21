@@ -68,7 +68,7 @@ export const AdminDashboard: React.FC = () => {
       </div>
 
       {/* --- ANALYTICS CARDS GRID --- */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         
         {/* Total Products Card */}
         <div className="bg-[#0c111e]/70 border border-neutral-900 rounded-3xl p-5 flex items-center gap-4">
@@ -81,20 +81,6 @@ export const AdminDashboard: React.FC = () => {
           </div>
         </div>
 
-        {/* Stock Value Card */}
-        <div className="bg-[#0c111e]/70 border border-neutral-900 rounded-3xl p-5 flex items-center gap-4">
-          <div className="p-3.5 rounded-2xl bg-emerald-600/10 text-emerald-400">
-            <BarChart3 className="h-6 w-6" />
-          </div>
-          <div>
-            <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Inventory Value</span>
-            <h3 className="text-xl font-bold text-white mt-0.5">
-              {adminSettings.currencySymbol}
-              {totalCatalogValue.toLocaleString()}
-            </h3>
-          </div>
-        </div>
-
         {/* Out of Stock Card */}
         <div className="bg-[#0c111e]/70 border border-neutral-900 rounded-3xl p-5 flex items-center gap-4">
           <div className="p-3.5 rounded-2xl bg-rose-600/10 text-rose-400">
@@ -103,20 +89,6 @@ export const AdminDashboard: React.FC = () => {
           <div>
             <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Out of Stock</span>
             <h3 className="text-xl font-bold text-white mt-0.5">{outOfStockCount}</h3>
-          </div>
-        </div>
-
-        {/* Total Orders Value Card */}
-        <div className="bg-[#0c111e]/70 border border-neutral-900 rounded-3xl p-5 flex items-center gap-4">
-          <div className="p-3.5 rounded-2xl bg-amber-600/10 text-amber-400">
-            <ShoppingBag className="h-6 w-6" />
-          </div>
-          <div>
-            <span className="text-[10px] uppercase font-bold text-neutral-500 tracking-wider">Mock Sales Log</span>
-            <h3 className="text-xl font-bold text-white mt-0.5">
-              {adminSettings.currencySymbol}
-              {totalOrdersAmount.toLocaleString()}
-            </h3>
           </div>
         </div>
       </div>

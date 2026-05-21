@@ -52,7 +52,7 @@ export function generateCartOrderUrl(
     itemsList += `   Price: ${currency}${itemTotal} (${currency}${item.product.price} each)\n`;
   });
 
-  const message = `Hello, I want to order the following items from *AURA Noir*:\n${itemsList}\n*Total Order Price:* ${currency}${total}\n\nPlease confirm availability. Thank you!`;
+  const message = `Hello, I want to order the following items from *Rashi Fashion*:\n${itemsList}\n*Total Order Price:* ${currency}${total}\n\nPlease confirm availability. Thank you!`;
 
   return `https://wa.me/${finalPhone}?text=${encodeURIComponent(message)}`;
 }

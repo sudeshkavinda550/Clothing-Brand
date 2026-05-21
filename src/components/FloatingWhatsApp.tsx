@@ -34,12 +34,12 @@ export const FloatingWhatsApp: React.FC = () => {
               <div className="flex items-center gap-3">
                 <div className="relative">
                   <div className="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center font-bold text-lg">
-                    A
+                    {adminSettings.businessName.charAt(0) || "R"}
                   </div>
                   <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-green-400 border border-emerald-600"></span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-sm">AURA Concierge</h4>
+                  <h4 className="font-semibold text-sm">{adminSettings.businessName} Concierge</h4>
                   <p className="text-xs text-emerald-100">Typically replies instantly</p>
                 </div>
               </div>
@@ -54,7 +54,7 @@ export const FloatingWhatsApp: React.FC = () => {
             {/* Chat Body */}
             <div className="p-4 bg-slate-50 dark:bg-[#070b13] min-h-[80px] text-xs text-neutral-600 dark:text-neutral-300">
               <div className="bg-white dark:bg-[#1e293b] p-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] border border-neutral-100 dark:border-neutral-800/40">
-                Hello there! Welcome to *AURA Noir*. How can we help you with your order or sizing today?
+                Hello there! Welcome to *{adminSettings.businessName}*. How can we help you with your order today?
               </div>
             </div>
 

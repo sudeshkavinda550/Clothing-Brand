@@ -1,27 +1,6 @@
 import { Product, Category, Review, AdminSettings } from "../types";
 
-export const MOCK_CATEGORIES: Category[] = [
-  {
-    name: "Crochet Crop Tops",
-    slug: "tops",
-    image: "https://images.unsplash.com/photo-1583521214690-73421a1829a9?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Crochet Dresses",
-    slug: "dresses",
-    image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Crochet Cardigans",
-    slug: "cardigans-sweaters",
-    image: "https://images.unsplash.com/photo-1617696618132-9c2af5b37e01?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    name: "Bags & Accessories",
-    slug: "accessories",
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80"
-  }
-];
+export const MOCK_CATEGORIES: Category[] = [];
 
 // No pre-loaded products — add your own from the admin panel
 export const MOCK_PRODUCTS: Product[] = [];
@@ -54,8 +33,8 @@ export const MOCK_REVIEWS: Review[] = [
 ];
 
 export const DEFAULT_SETTINGS: AdminSettings = {
-  whatsappNumber: "94771234567",
-  businessName: "AURA Crochet",
+  whatsappNumber: "94775286498",
+  businessName: "Rashi Fashion",
   currencySymbol: "Rs. ",
   greetingTemplate: "Hello, I want to order:\n\n*Product:* {productName}\n*Color:* {color}\n*Size:* {size}\n*Quantity:* {quantity}\n*Price:* {price}\n\nPlease confirm availability.",
   cloudinaryCloudName: "divjuliq6",
