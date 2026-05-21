@@ -85,13 +85,16 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
 
       const unsubCategories = onSnapshot(collection(db, "categories"), (snapshot) => {
         const list: Category[] = [];
-        snapshot.forEach((d) => { list.push(d.data() as Category); });
-        if (list.length > 0) {
-          setCategories(list);
-        } else {
-          console.log("Firestore categories empty. Seeding defaults...");
-          MOCK_CATEGORIES.forEach((cat) => { setDoc(doc(db!, "categories", cat.slug), cat); });
-        }
+        snapshot.forEach((d) => {
+          const cat = d.data() as Category;
+          if (["tops", "dresses", "cardigans-sweaters", "accessories"].includes(cat.slug)) {
+            console.log(`Auto-deleting hardcoded category: ${cat.slug}`);
+            deleteDoc(doc(db!, "categories", cat.slug));
+          } else {
+            list.push(cat);
+          }
+        });
+        setCategories(list);
       });
 
       const unsubReviews = onSnapshot(collection(db, "reviews"), (snapshot) => {
@@ -106,10 +109,20 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       });
 
       const unsubSettings = onSnapshot(collection(db, "settings"), (snapshot) => {
-        let globalSettings: AdminSettings | null = null;
-        snapshot.forEach((d) => { if (d.id === "global") { globalSettings = d.data() as AdminSettings; } });
+        const globalDoc = snapshot.docs.find((d) => d.id === "global");
+        const globalSettings = globalDoc ? (globalDoc.data() as AdminSettings) : null;
         if (globalSettings) {
-          setAdminSettings(globalSettings);
+          if (globalSettings.businessName === "AURA Crochet" || globalSettings.businessName === "AURA Noir" || !globalSettings.businessName) {
+            console.log("Old settings detected in Firestore. Migrating to Rashi Fashion...");
+            const migrated: AdminSettings = {
+              ...globalSettings,
+              businessName: DEFAULT_SETTINGS.businessName,
+              whatsappNumber: DEFAULT_SETTINGS.whatsappNumber
+            };
+            setDoc(doc(db!, "settings", "global"), migrated);
+          } else {
+            setAdminSettings(globalSettings);
+          }
         } else {
           console.log("Firestore settings empty. Seeding defaults...");
           setDoc(doc(db!, "settings", "global"), DEFAULT_SETTINGS);
