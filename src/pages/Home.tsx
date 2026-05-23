@@ -212,10 +212,6 @@ export const Home: React.FC = () => {
           transition={{ type: "spring", stiffness: 50, damping: 13 }}
           className="max-w-5xl mx-auto px-6 text-center space-y-6 relative z-10 flex flex-col items-center"
         >
-          <div className="flex items-center gap-1.5 px-3 py-1 bg-white/5 rounded-full border border-white/10 text-[9px] font-bold tracking-widest uppercase text-indigo-300">
-            <TrendingUp className="h-3.5 w-3.5 text-indigo-300" />
-            <span>Heavyweight Craftsmanship</span>
-          </div>
           <h3 className="font-heading font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight max-w-3xl leading-tight">
             Designed for Comfort, Crafted for <span className="text-gradient">Permanence</span>
           </h3>
@@ -308,7 +304,7 @@ export const Home: React.FC = () => {
         </motion.div>
 
         {/* Feed Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-start">
           {instaFeed.map((img, idx) => (
             <motion.div
               key={idx}
