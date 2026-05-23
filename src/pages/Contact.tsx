@@ -16,12 +16,12 @@ export const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.message) return;
-    
+
     // Create WhatsApp text query based on form input
     const text = `Hi, I am ${formData.name}. Inquiry: ${formData.subject ? `[${formData.subject}] ` : ""}${formData.message}`;
     const encodedText = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/${adminSettings.whatsappNumber}?text=${encodedText}`;
-    
+
     // Redirect to WhatsApp
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     setSubmitted(true);
@@ -35,15 +35,6 @@ export const Contact: React.FC = () => {
     <div className="pb-20 space-y-16 overflow-x-hidden">
       {/* 1. HEADER TITLE */}
       <section className="relative pt-12 text-center max-w-3xl mx-auto px-6 space-y-4">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/50 dark:bg-[#0c111e]/40 backdrop-blur-md text-[10px] uppercase font-bold tracking-widest text-indigo-600 dark:text-indigo-400"
-        >
-          <MessageSquare className="h-3.5 w-3.5 text-indigo-500" />
-          <span>Support Desk</span>
-        </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

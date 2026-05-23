@@ -1,68 +1,55 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Camera } from "lucide-react";
 
 export const Gallery: React.FC = () => {
   // 12 beautiful Unsplash editorial images focusing entirely on women's high fashion
   const campaignPhotos = [
     {
-      src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80",
-      tag: "Minimalist Set",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535340/Gemini_Generated_Image_qe8cnzqe8cnzqe8c-clean_rmxkfv.png",
       span: "row-span-2 col-span-1"
     },
     {
-      src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80",
-      tag: "Heavy loopback",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535338/Gemini_Generated_Image_nowe1hnowe1hnowe-clean_rxzuhx.png",
       span: "row-span-1 col-span-1"
     },
     {
-      src: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80",
-      tag: "Outerwear Line",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535337/Gemini_Generated_Image_ipipd4ipipd4ipip-clean_nalmq7.png",
       span: "row-span-1 col-span-1"
     },
     {
-      src: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80",
-      tag: "Cozy knitwear",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535336/Gemini_Generated_Image_4p1myi4p1myi4p1m-clean_stkmmb.png",
       span: "row-span-2 col-span-1 md:col-span-2 lg:col-span-1"
     },
     {
-      src: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80",
-      tag: "Minimal Trench",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535337/Gemini_Generated_Image_gdm4cwgdm4cwgdm4-clean_rzqmwp.png",
       span: "row-span-1 col-span-1"
     },
     {
-      src: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
-      tag: "Blazer Capsule",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535335/Gemini_Generated_Image_1nn4v71nn4v71nn4-clean_n4wolj.png",
       span: "row-span-2 col-span-1"
     },
     {
-      src: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80",
-      tag: "Summer Dress",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535330/Gemini_Generated_Image_g13qsxg13qsxg13q-clean_diamze.png",
       span: "row-span-1 col-span-1"
     },
     {
-      src: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80",
-      tag: "Organic Cotton",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535329/Gemini_Generated_Image_2cuq3f2cuq3f2cuq-clean_k6wute.png",
       span: "row-span-1 col-span-1"
     },
     {
-      src: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=800&q=80",
-      tag: "Oversized Tee",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535328/Gemini_Generated_Image_8vxzhb8vxzhb8vxz-clean_yrv2kz.png",
       span: "row-span-2 col-span-1"
     },
     {
-      src: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=800&q=80",
-      tag: "Heavy loopback",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535328/Gemini_Generated_Image_1b6owl1b6owl1b6o-clean_ylo1y0.png",
       span: "row-span-1 col-span-1"
     },
     {
-      src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80",
-      tag: "Structured Blazer",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535327/Gemini_Generated_Image_7tmc787tmc787tmc-clean_bihph8.png",
       span: "row-span-1 col-span-1"
     },
     {
-      src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
-      tag: "Street Hoodies",
+      src: "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535323/Gemini_Generated_Image_1udohu1udohu1udo-clean_aiyqqq.png",
       span: "row-span-1 col-span-1"
     }
   ];
@@ -71,15 +58,6 @@ export const Gallery: React.FC = () => {
     <div className="pb-20 space-y-16 overflow-x-hidden">
       {/* 1. HEADER TITLE */}
       <section className="relative pt-12 text-center max-w-3xl mx-auto px-6 space-y-4">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50/50 dark:bg-[#0c111e]/40 backdrop-blur-md text-[10px] uppercase font-bold tracking-widest text-indigo-600 dark:text-indigo-400"
-        >
-          <Camera className="h-3.5 w-3.5 text-indigo-500" />
-          <span>Lookbook 2026</span>
-        </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -112,22 +90,12 @@ export const Gallery: React.FC = () => {
             >
               <img
                 src={photo.src}
-                alt={photo.tag}
+                alt={`Campaign Photo ${idx + 1}`}
                 className="w-full h-full object-cover transition-transform duration-750 group-hover:scale-105"
                 loading="lazy"
               />
               {/* Soft overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-60 group-hover:opacity-85 transition-opacity duration-300" />
-              
-              {/* Overlay label */}
-              <div className="absolute bottom-5 left-5 text-white space-y-1 transform translate-y-1.5 group-hover:translate-y-0 transition-transform duration-300">
-                <span className="text-[9px] uppercase font-bold tracking-widest text-indigo-300">
-                  Capsule Line
-                </span>
-                <h3 className="font-heading font-bold text-sm md:text-base uppercase tracking-wider">
-                  {photo.tag}
-                </h3>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-40 transition-opacity duration-300" />
             </motion.div>
           ))}
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, TrendingUp, Compass, Shirt } from "lucide-react";
+import { ArrowRight, TrendingUp, Compass, Shirt } from "lucide-react";
 import { useAppContext } from "../context/AppContext";
 import { ProductCard } from "../components/ProductCard";
 import { ReviewSlider } from "../components/ReviewSlider";
@@ -27,12 +27,12 @@ export const Home: React.FC = () => {
 
   // Unsplash images for the Instagram fashion grid
   const instaFeed = [
-    "https://images.unsplash.com/photo-1583521214690-73421a1829a9?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1617696618132-9c2af5b37e01?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1612731955729-c57bfb7b5c26?auto=format&fit=crop&w=600&q=80",
-    "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80"
+    "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535635/Gemini_Generated_Image_ybc7ixybc7ixybc7-clean_qnzgzp.png",
+    "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535634/Gemini_Generated_Image_s91bv7s91bv7s91b-clean_s0uva0.png",
+    "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535632/Gemini_Generated_Image_svpx6zsvpx6zsvpx-clean_hkgvtl.png",
+    "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535631/Gemini_Generated_Image_z5abjwz5abjwz5ab-clean_oqgm1s.png",
+    "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535327/Gemini_Generated_Image_7tmc787tmc787tmc-clean_bihph8.png",
+    "https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535328/Gemini_Generated_Image_8vxzhb8vxzhb8vxz-clean_yrv2kz.png"
   ];
 
   return (
@@ -62,16 +62,6 @@ export const Home: React.FC = () => {
 
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-4xl px-6 space-y-6 md:space-y-8 flex flex-col items-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[10px] uppercase font-bold tracking-widest text-indigo-200"
-          >
-            <Sparkles className="h-3.5 w-3.5 fill-indigo-200 text-indigo-300" />
-            <span>Autumn Winter Capsule 2026</span>
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

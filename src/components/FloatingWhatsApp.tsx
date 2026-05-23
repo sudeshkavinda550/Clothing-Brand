@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MessageCircle, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useAppContext } from "../context/AppContext";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -71,7 +71,11 @@ export const FloatingWhatsApp: React.FC = () => {
                 type="submit"
                 className="bg-emerald-600 text-white p-2 rounded-full hover:bg-emerald-500 active:scale-95 transition cursor-pointer flex items-center justify-center"
               >
-                <MessageCircle className="h-4 w-4 fill-white" />
+                <img
+                  src="https://res.cloudinary.com/dp1jwsapk/image/upload/v1779536203/vecteezy_whatsapp-logo-icon-isolated-on-transparent-background_24398617_1_oyp1ib.png"
+                  alt="Send"
+                  className="h-4.5 w-4.5 object-contain brightness-0 invert"
+                />
               </button>
             </form>
           </motion.div>
@@ -81,10 +85,14 @@ export const FloatingWhatsApp: React.FC = () => {
       {/* Main floating bubble button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative group p-4 rounded-full bg-emerald-600 hover:bg-emerald-500 shadow-xl shadow-emerald-600/30 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer z-50"
+        className="relative group p-0 rounded-full shadow-lg shadow-emerald-500/20 flex items-center justify-center transition-transform hover:scale-105 active:scale-95 cursor-pointer z-50 bg-transparent border-0"
       >
-        <span className="absolute inset-0 rounded-full bg-emerald-600/30 animate-ping group-hover:animate-none"></span>
-        <MessageCircle className="h-6 w-6 text-white fill-white relative z-10" />
+        <span className="absolute inset-0 rounded-full bg-emerald-500/20 animate-ping group-hover:animate-none scale-110"></span>
+        <img
+          src="https://res.cloudinary.com/dp1jwsapk/image/upload/v1779536203/vecteezy_whatsapp-logo-icon-isolated-on-transparent-background_24398617_1_oyp1ib.png"
+          alt="WhatsApp Chat"
+          className="w-14 h-14 object-contain relative z-10"
+        />
       </button>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { ShoppingBag, Menu, X, Trash2, Shield, Plus, Minus } from "lucide-react";
+import { ShoppingBag, Menu, X, Trash2, Plus, Minus } from "lucide-react";
 import { useAppContext } from "../context/AppContext";
 import { ThemeToggle } from "./ThemeToggle";
 import { generateCartOrderUrl } from "../utils/whatsapp";
@@ -17,17 +17,17 @@ export const Navbar: React.FC = () => {
 
   const handleCheckout = () => {
     if (cart.length === 0) return;
-    
+
     // Generate URL
     const url = generateCartOrderUrl(
       adminSettings.whatsappNumber,
       cart,
       adminSettings.currencySymbol
     );
-    
+
     // Open WhatsApp
     window.open(url, "_blank", "noopener,noreferrer");
-    
+
     // Submit order internally to log database orders & deduct stock
     submitOrder();
     setCartOpen(false);
@@ -46,7 +46,7 @@ export const Navbar: React.FC = () => {
       {/* Sticky Header */}
       <header className="sticky top-0 z-40 w-full border-b border-neutral-200/40 dark:border-neutral-900/60 bg-white/70 dark:bg-[#030712]/75 backdrop-blur-md transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-          
+
           {/* Mobile Menu Icon */}
           <button
             onClick={() => setMobileMenuOpen(true)}
@@ -71,10 +71,9 @@ export const Navbar: React.FC = () => {
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-xs font-semibold uppercase tracking-widest transition-colors ${
-                    isActive
-                      ? "text-indigo-600 dark:text-indigo-400 font-bold"
-                      : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-white"
+                  `text-xs font-semibold uppercase tracking-widest transition-colors ${isActive
+                    ? "text-indigo-600 dark:text-indigo-400 font-bold"
+                    : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-white"
                   }`
                 }
               >
@@ -87,17 +86,6 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center gap-2 sm:gap-3.5">
             {/* Theme Toggle Button */}
             <ThemeToggle />
-
-            {/* Admin Dashboard Indicator Link */}
-            <Link
-              to={adminLoggedIn ? "/admin/dashboard" : "/login"}
-              className={`p-2 rounded-full border border-neutral-200/50 dark:border-neutral-800/50 hover:bg-neutral-100 dark:hover:bg-neutral-900 transition-colors ${
-                adminLoggedIn ? "text-indigo-500" : "text-neutral-500 dark:text-neutral-400"
-              }`}
-              title={adminLoggedIn ? "Admin Dashboard" : "Admin Login"}
-            >
-              <Shield className="h-5 w-5" />
-            </Link>
 
             {/* Cart Trigger Button */}
             <button

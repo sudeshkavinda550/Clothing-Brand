@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Heart, Shield, RefreshCw } from "lucide-react";
+import { Heart, Shield, RefreshCw } from "lucide-react";
 import { useAppContext } from "../context/AppContext";
 
 export const AboutUs: React.FC = () => {
@@ -18,7 +18,7 @@ export const AboutUs: React.FC = () => {
       <section className="relative h-[55vh] flex items-center justify-center bg-black overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1583521214690-73421a1829a9?auto=format&fit=crop&w=1920&q=80"
+            src="https://res.cloudinary.com/dp1jwsapk/image/upload/v1779536017/james-forbes-Sg5DfNDJ7ks-unsplash_dwz3us.jpg"
             alt="About Us Campaign"
             className="w-full h-full object-cover opacity-50 dark:opacity-35 scale-105"
           />
@@ -26,15 +26,6 @@ export const AboutUs: React.FC = () => {
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-3xl space-y-4">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[10px] uppercase font-bold tracking-widest text-indigo-200"
-          >
-            <Sparkles className="h-3 w-3 text-indigo-300" />
-            <span>Since 2024</span>
-          </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,7 +77,7 @@ export const AboutUs: React.FC = () => {
           className="relative aspect-video sm:aspect-[4/3] rounded-3xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-150 dark:border-neutral-800"
         >
           <img
-            src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1000&q=80"
+            src="https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535330/Gemini_Generated_Image_g13qsxg13qsxg13q-clean_diamze.png"
             alt="Womenswear silhouette look"
             className="w-full h-full object-cover"
           />
