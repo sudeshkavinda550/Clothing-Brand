@@ -61,18 +61,6 @@ export const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Support links */}
-        <div>
-          <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-neutral-800 dark:text-white mb-4">
-            Customer Care
-          </h4>
-          <ul className="space-y-2.5 text-xs text-neutral-500 dark:text-neutral-400">
-            <li><Link to="/shop" className="hover:text-indigo-600 dark:hover:text-indigo-400">Browse Catalog</Link></li>
-            <li><a href={`https://wa.me/${adminSettings.whatsappNumber.replace(/[^\d]/g, "")}`} target="_blank" rel="noreferrer" className="hover:text-indigo-600 dark:hover:text-indigo-400">WhatsApp Inquiry</a></li>
-            <li><Link to="/login" className="hover:text-indigo-600 dark:hover:text-indigo-400">Admin Portal</Link></li>
-          </ul>
-        </div>
-
         {/* Contact Info */}
         <div className="space-y-3.5">
           <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-neutral-800 dark:text-white mb-4">
@@ -86,10 +74,7 @@ export const Footer: React.FC = () => {
             <Phone className="h-4 w-4 text-indigo-500 flex-shrink-0" />
             <span>+{adminSettings.whatsappNumber}</span>
           </div>
-          <div className="flex items-center gap-3 text-xs text-neutral-500 dark:text-neutral-400">
-            <Mail className="h-4 w-4 text-indigo-500 flex-shrink-0" />
-            <span>concierge@auranoir.com</span>
-          </div>
+         
         </div>
       </div>
 

@@ -7,13 +7,27 @@ import { LoadingSkeleton } from "../components/LoadingSkeleton";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const Shop: React.FC = () => {
-  const { products, categories } = useAppContext();
+  const { products, categories, adminSettings } = useAppContext();
   const [searchParams, setSearchParams] = useSearchParams();
+
+  // --- PRICE RANGE LIMITS COMPUTATION ---
+  const maxPriceLimit = useMemo(() => {
+    if (products.length === 0) return 10000;
+    const maxVal = Math.max(...products.map((p) => p.price));
+    return Math.ceil(maxVal / 100) * 100;
+  }, [products]);
+
+  const minPriceLimit = useMemo(() => {
+    if (products.length === 0) return 0;
+    const minVal = Math.min(...products.map((p) => p.price));
+    return Math.floor(minVal / 100) * 100;
+  }, [products]);
 
   // --- FILTERS STATE ---
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [maxPrice, setMaxPrice] = useState(300);
+  const [maxPrice, setMaxPrice] = useState(10000);
+  const [hasInitializedPrice, setHasInitializedPrice] = useState(false);
   const [sortBy, setSortBy] = useState("featured");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -27,6 +41,14 @@ export const Shop: React.FC = () => {
       setSelectedCategory("all");
     }
   }, [searchParams]);
+
+  // Sync initial maxPrice with maxPriceLimit once products are loaded
+  useEffect(() => {
+    if (products.length > 0 && !hasInitializedPrice) {
+      setMaxPrice(maxPriceLimit);
+      setHasInitializedPrice(true);
+    }
+  }, [products, maxPriceLimit, hasInitializedPrice]);
 
   // Handle URL change when category changes manually
   const handleCategorySelect = (slug: string) => {
@@ -85,7 +107,7 @@ export const Shop: React.FC = () => {
   const handleResetFilters = () => {
     setSearchQuery("");
     handleCategorySelect("all");
-    setMaxPrice(300);
+    setMaxPrice(maxPriceLimit);
     setSortBy("featured");
   };
 
@@ -197,20 +219,23 @@ export const Shop: React.FC = () => {
           <div className="space-y-4">
             <div className="flex justify-between items-center text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
               <span>Max Price</span>
-              <span className="text-neutral-800 dark:text-white font-mono">${maxPrice}</span>
+              <span className="text-neutral-800 dark:text-white font-mono">
+                {adminSettings.currencySymbol}
+                {maxPrice}
+              </span>
             </div>
             <input
               type="range"
-              min="20"
-              max="300"
-              step="5"
+              min={minPriceLimit}
+              max={maxPriceLimit}
+              step={maxPriceLimit > 1000 ? 50 : 5}
               value={maxPrice}
               onChange={(e) => setMaxPrice(Number(e.target.value))}
               className="w-full h-1 bg-neutral-200 dark:bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-indigo-600 dark:accent-indigo-500"
             />
             <div className="flex justify-between text-[10px] text-neutral-400 font-medium">
-              <span>$20</span>
-              <span>$300</span>
+              <span>{adminSettings.currencySymbol}{minPriceLimit}</span>
+              <span>{adminSettings.currencySymbol}{maxPriceLimit}</span>
             </div>
           </div>
         </aside>
@@ -339,20 +364,23 @@ export const Shop: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-widest">
                     <span>Max Price</span>
-                    <span className="text-neutral-800 dark:text-white font-mono">${maxPrice}</span>
+                    <span className="text-neutral-800 dark:text-white font-mono">
+                      {adminSettings.currencySymbol}
+                      {maxPrice}
+                    </span>
                   </div>
                   <input
                     type="range"
-                    min="20"
-                    max="300"
-                    step="5"
+                    min={minPriceLimit}
+                    max={maxPriceLimit}
+                    step={maxPriceLimit > 1000 ? 50 : 5}
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(Number(e.target.value))}
                     className="w-full h-1 bg-neutral-200 dark:bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-indigo-600 dark:accent-indigo-500"
                   />
                   <div className="flex justify-between text-[10px] text-neutral-400 font-medium">
-                    <span>$20</span>
-                    <span>$300</span>
+                    <span>{adminSettings.currencySymbol}{minPriceLimit}</span>
+                    <span>{adminSettings.currencySymbol}{maxPriceLimit}</span>
                   </div>
                 </div>
               </div>
