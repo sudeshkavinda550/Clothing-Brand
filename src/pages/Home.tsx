@@ -316,12 +316,12 @@ export const Home: React.FC = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ type: "spring", stiffness: 85, damping: 16, delay: idx * 0.05 }}
-              className="relative aspect-square rounded-2xl overflow-hidden group border border-neutral-100 dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800"
+              className="relative rounded-2xl overflow-hidden group border border-neutral-100 dark:border-neutral-900 bg-neutral-100 dark:bg-neutral-800"
             >
               <img
                 src={img}
                 alt={`Instagram look ${idx + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
                 <InstagramIcon className="h-6 w-6 text-white" />

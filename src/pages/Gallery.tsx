@@ -78,7 +78,7 @@ export const Gallery: React.FC = () => {
 
       {/* 2. LOOKBOOK GRID */}
       <section className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-[250px] md:auto-rows-[300px]">
+        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
           {campaignPhotos.map((photo, idx) => (
             <motion.div
               key={idx}
@@ -86,12 +86,12 @@ export const Gallery: React.FC = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ type: "spring", stiffness: 65, damping: 14, delay: (idx % 3) * 0.08 }}
-              className={`group relative rounded-3xl overflow-hidden border border-neutral-100 dark:border-neutral-900 bg-neutral-50 dark:bg-[#0c111e]/40 ${photo.span}`}
+              className="break-inside-avoid mb-6 group relative rounded-3xl overflow-hidden border border-neutral-100 dark:border-neutral-900 bg-neutral-50 dark:bg-[#0c111e]/40"
             >
               <img
                 src={photo.src}
                 alt={`Campaign Photo ${idx + 1}`}
-                className="w-full h-full object-cover transition-transform duration-750 group-hover:scale-105"
+                className="w-full h-auto block transition-transform duration-750 group-hover:scale-105"
                 loading="lazy"
               />
               {/* Soft overlay */}

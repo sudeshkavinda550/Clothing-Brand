@@ -74,12 +74,12 @@ export const AboutUs: React.FC = () => {
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ type: "spring", stiffness: 60, damping: 14 }}
-          className="relative aspect-video sm:aspect-[4/3] rounded-3xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-150 dark:border-neutral-800"
+          className="relative rounded-3xl overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-150 dark:border-neutral-800"
         >
           <img
             src="https://res.cloudinary.com/dp1jwsapk/image/upload/v1779535330/Gemini_Generated_Image_g13qsxg13qsxg13q-clean_diamze.png"
             alt="Womenswear silhouette look"
-            className="w-full h-full object-cover"
+            className="w-full h-auto block"
           />
         </motion.div>
       </section>
