@@ -101,7 +101,18 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         const list: Review[] = [];
         snapshot.forEach((d) => { list.push({ id: d.id, ...d.data() } as Review); });
         if (list.length > 0) {
-          setReviews(list);
+          const hasOldReviews = list.some(r => r.name === "Dilnoza S." || r.id === "rev-2" || r.id === "rev-3");
+          if (hasOldReviews) {
+            console.log("Old mock reviews detected in Firestore. Deleting and re-seeding...");
+            list.forEach(async (r) => {
+              if (r.id === "rev-1" || r.id === "rev-2" || r.id === "rev-3") {
+                await deleteDoc(doc(db!, "reviews", r.id));
+              }
+            });
+            MOCK_REVIEWS.forEach((rev) => { setDoc(doc(db!, "reviews", rev.id), rev); });
+          } else {
+            setReviews(list);
+          }
         } else {
           console.log("Firestore reviews empty. Seeding defaults...");
           MOCK_REVIEWS.forEach((rev) => { setDoc(doc(db!, "reviews", rev.id), rev); });
