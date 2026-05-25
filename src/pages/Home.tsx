@@ -68,8 +68,8 @@ export const Home: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="font-heading font-black text-4xl sm:text-6xl md:text-8xl tracking-tight text-white leading-tight uppercase"
           >
-            Aesthetic <br className="sm:hidden" />
-            <span className="text-gradient">Minimalism</span>
+            Crochet <br className="sm:hidden" />
+            <span className="text-gradient">Crop Tops</span>
           </motion.h2>
 
           <motion.p
@@ -78,7 +78,7 @@ export const Home: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-sm md:text-base text-neutral-300 max-w-lg leading-relaxed font-medium"
           >
-            Elevate your streetwear rotation with architectural cuts, clean silhouettes, and ultra-heavyweight sustainable cotton.
+            Elevate your wardrobe with premium handcrafted crochet crop tops. Individually designed, meticulously stitched, and custom-tailored to fit you.
           </motion.p>
 
           <motion.div
@@ -213,10 +213,10 @@ export const Home: React.FC = () => {
           className="max-w-5xl mx-auto px-6 text-center space-y-6 relative z-10 flex flex-col items-center"
         >
           <h3 className="font-heading font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight max-w-3xl leading-tight">
-            Designed for Comfort, Crafted for <span className="text-gradient">Permanence</span>
+            Handcrafted with Passion, Made for <span className="text-gradient">You</span>
           </h3>
           <p className="text-xs sm:text-sm text-neutral-400 max-w-lg leading-relaxed">
-            All garments utilize bespoke fabric washes to deliver comfort from wear one, combined with double-stitched reinforcements for ultimate longevity.
+            Every crochet piece is hand-knitted with soft, premium cotton yarn to ensure absolute comfort, durability, and a beautiful custom-fit silhouette.
           </p>
           <div className="pt-2">
             <Link

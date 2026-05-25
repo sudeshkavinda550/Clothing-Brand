@@ -131,7 +131,7 @@ export const Shop: React.FC = () => {
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
           <input
             type="text"
-            placeholder="Search aesthetic apparel..."
+            placeholder="Search crochet crop tops..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-11 pr-4 py-3 bg-white dark:bg-[#0c111e]/30 border border-neutral-200 dark:border-neutral-900 rounded-full text-xs placeholder-neutral-450 focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 dark:text-white transition-all"

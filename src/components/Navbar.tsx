@@ -70,14 +70,26 @@ export const Navbar: React.FC = () => {
               <NavLink
                 key={link.path}
                 to={link.path}
-                className={({ isActive }) =>
-                  `text-xs font-semibold uppercase tracking-widest transition-colors ${isActive
-                    ? "text-indigo-600 dark:text-indigo-400 font-bold"
-                    : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-white"
-                  }`
-                }
+                className="relative py-2 text-xs font-semibold uppercase tracking-widest text-neutral-550 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-white transition-colors duration-200"
               >
-                {link.label}
+                {({ isActive }) => (
+                  <motion.span
+                    className="relative z-10 block"
+                    whileHover={{ scale: 1.05, y: -1 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className={isActive ? "text-indigo-600 dark:text-indigo-400 font-bold" : ""}>
+                      {link.label}
+                    </span>
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeTabUnderline"
+                        className="absolute -bottom-1 left-0 right-0 h-[2px] bg-indigo-600 dark:bg-indigo-400 rounded-full"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </motion.span>
+                )}
               </NavLink>
             ))}
           </nav>
@@ -152,7 +164,7 @@ export const Navbar: React.FC = () => {
                       <div>
                         <h4 className="font-semibold text-sm text-neutral-700 dark:text-white">Your bag is empty</h4>
                         <p className="text-xs text-neutral-400 dark:text-neutral-550 mt-1 max-w-[200px] mx-auto">
-                          Browse our modern luxury collections to add apparel.
+                          Browse our modern collections to add crochet crop tops.
                         </p>
                       </div>
                       <Link
@@ -310,26 +322,39 @@ export const Navbar: React.FC = () => {
               </div>
 
               {/* Links */}
-              <div className="flex-1 py-6 px-4 flex flex-col gap-5">
+              <motion.div
+                initial="hidden"
+                animate="show"
+                exit="hidden"
+                variants={{
+                  hidden: { opacity: 0 },
+                  show: {
+                    opacity: 1,
+                    transition: {
+                      staggerChildren: 0.08
+                    }
+                  }
+                }}
+                className="flex-1 py-6 px-4 flex flex-col gap-5"
+              >
                 {navLinks.map((link) => (
-                  <Link
+                  <motion.div
                     key={link.path}
-                    to={link.path}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-sm font-bold uppercase tracking-widest text-neutral-700 dark:text-neutral-300 hover:text-indigo-600 dark:hover:text-indigo-400"
+                    variants={{
+                      hidden: { x: -16, opacity: 0 },
+                      show: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 120, damping: 14 } }
+                    }}
                   >
-                    {link.label}
-                  </Link>
+                    <Link
+                      to={link.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block text-sm font-bold uppercase tracking-widest text-neutral-700 dark:text-neutral-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
                 ))}
-              </div>
-
-              {/* Footer */}
-              <div className="p-5 border-t border-neutral-100 dark:border-neutral-900 text-[10px] text-neutral-400 dark:text-neutral-500">
-                Authorized Admin Section:{" "}
-                <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="text-indigo-500 font-bold hover:underline ml-1">
-                  Login
-                </Link>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         )}

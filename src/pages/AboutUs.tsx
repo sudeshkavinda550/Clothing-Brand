@@ -6,10 +6,10 @@ import { useAppContext } from "../context/AppContext";
 export const AboutUs: React.FC = () => {
   const { adminSettings } = useAppContext();
   const stats = [
-    { label: "Sustainable Cotton", value: "100%" },
-    { label: "Garment Lifespan", value: "5+ Yrs" },
-    { label: "Bespoke Fabrics", value: "450GSM" },
-    { label: "Courier Support", value: "24/7" }
+    { label: "100% Handcrafted", value: "Artisan" },
+    { label: "Premium Cotton Yarn", value: "Soft Fit" },
+    { label: "Meticulous Detail", value: "Custom" },
+    { label: "WhatsApp Support", value: "24/7" }
   ];
 
   return (
@@ -58,14 +58,14 @@ export const AboutUs: React.FC = () => {
             Aesthetic Vision
           </span>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white uppercase leading-tight">
-            Minimalism <br className="hidden md:block" />
-            Redefined
+            Artistry <br className="hidden md:block" />
+            Hand-Crocheted
           </h2>
           <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            Founded with a commitment to subvert the fast-fashion cycle, we curate structural capsule lines for women. Every piece represents hours of refining proportions, sourcing sustainable 100% organic cotton, and crafting fabrics that fall perfectly on the body.
+            Founded with a commitment to celebrate handcrafted design and slow fashion, we curate premium handmade crochet crop tops and knitwear. Every single piece is meticulously hand-crocheted by local artisans, representing hours of dedication, high-quality premium cotton yarn, and custom sizing designed to fit your body perfectly.
           </p>
           <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-            We do not follow seasonal trends. We produce permanent essentials with heavy GSM weights, double-stitched durability, and soft pre-shrunk washes that feel luxurious from the very first wear.
+            We do not follow mass-produced trends. We produce permanent artisan essentials with custom knit patterns, elegant textures, and soft pre-washed yarn that feels comfortable and luxurious from the very first wear.
           </p>
         </motion.div>
 
@@ -139,10 +139,10 @@ export const AboutUs: React.FC = () => {
               <Heart className="h-6 w-6" />
             </div>
             <h3 className="font-heading font-bold text-lg text-neutral-850 dark:text-white uppercase">
-              Ethical Sourcing
+              Artisan Handmade
             </h3>
             <p className="text-xs text-neutral-600 dark:text-neutral-450 leading-relaxed">
-              We work exclusively with ethical textile mills globally, utilizing organic and recycled yarn fabrics to support clean production environments.
+              We work with dedicated local women artisans who hand-crochet each crop top with utmost precision and care, keeping traditional craftsmanship alive.
             </p>
           </motion.div>
 
@@ -157,10 +157,10 @@ export const AboutUs: React.FC = () => {
               <Shield className="h-6 w-6" />
             </div>
             <h3 className="font-heading font-bold text-lg text-neutral-850 dark:text-white uppercase">
-              Heavyweight Fabrics
+              Premium Cotton Yarn
             </h3>
             <p className="text-xs text-neutral-600 dark:text-neutral-450 leading-relaxed">
-              Ditching thin structures, we develop heavyweight loopbacks and French terry materials designed to hold structured fits and withstand hundreds of wash cycles.
+              We select only the softest, high-grade cotton and acrylic blend yarns, ensuring your crochet crop top is breathable, durable, and feels amazing on the skin.
             </p>
           </motion.div>
 
@@ -175,10 +175,10 @@ export const AboutUs: React.FC = () => {
               <RefreshCw className="h-6 w-6" />
             </div>
             <h3 className="font-heading font-bold text-lg text-neutral-850 dark:text-white uppercase">
-              Seamless Ordering
+              Custom Fit Options
             </h3>
             <p className="text-xs text-neutral-600 dark:text-neutral-450 leading-relaxed">
-              We skip complicated accounts. Add items, customize options, and checkout straight to WhatsApp to complete details with support team.
+              Specify your exact measurements and custom color combinations on checkout, and our artisans will knit a crop top tailored uniquely to your body.
             </p>
           </motion.div>
         </div>

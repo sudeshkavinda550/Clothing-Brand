@@ -149,7 +149,7 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     // --- LOCAL STORAGE FALLBACK ---
     console.log("Local Storage Mode Active");
 
-    const rashiSeeded = localStorage.getItem("rashi_seeded_v1");
+    const rashiSeeded = localStorage.getItem("rashi_seeded_v2");
     if (!rashiSeeded) {
       localStorage.removeItem("aura_products");
       localStorage.removeItem("aura_categories");
@@ -157,12 +157,12 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       localStorage.removeItem("aura_settings");
       localStorage.removeItem("aura_cart");
       localStorage.removeItem("aura_orders");
-      localStorage.setItem("rashi_seeded_v1", "true");
+      localStorage.setItem("rashi_seeded_v2", "true");
     }
 
     const savedProducts = localStorage.getItem("aura_products");
     if (savedProducts) { setProducts(JSON.parse(savedProducts)); }
-    else { setProducts([]); localStorage.setItem("aura_products", JSON.stringify([])); }
+    else { setProducts(MOCK_PRODUCTS); localStorage.setItem("aura_products", JSON.stringify(MOCK_PRODUCTS)); }
 
     const savedCategories = localStorage.getItem("aura_categories");
     if (savedCategories) { setCategories(JSON.parse(savedCategories)); }

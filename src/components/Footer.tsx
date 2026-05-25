@@ -1,7 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Instagram, Send, MapPin, Phone, Mail } from "lucide-react";
+import { Facebook, MapPin, Phone, Mail } from "lucide-react";
 import { useAppContext } from "../context/AppContext";
+
+const TiktokIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 
 export const Footer: React.FC = () => {
   const { adminSettings, categories } = useAppContext();
@@ -15,24 +29,26 @@ export const Footer: React.FC = () => {
             {adminSettings.businessName.toUpperCase()}<span className="text-indigo-600 dark:text-indigo-400">.</span>
           </h2>
           <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm">
-            High-fidelity streetwear brand tailored to modern aesthetics. Handcrafted luxury items built with sustainably sourced heavy-weight fabrics.
+            Handcrafted premium crochet crop tops and artisan knitwear, custom-made with love and premium sustainably sourced cotton yarn.
           </p>
           <div className="flex gap-3.5 pt-2">
             <a
-              href="https://instagram.com"
+              href="https://www.facebook.com/share/1FAMRBkQSW/"
               target="_blank"
               rel="noreferrer"
               className="p-2 rounded-full border border-neutral-250 dark:border-neutral-800 text-neutral-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-white dark:hover:bg-neutral-900 transition-colors"
+              title="Facebook"
             >
-              <Instagram className="h-4 w-4" />
+              <Facebook className="h-4 w-4" />
             </a>
             <a
-              href="https://telegram.org"
+              href="https://www.tiktok.com/@rashi_fashion?_r=1&_d=dj36ee8bj0c70a&sec_uid=MS4wLjABAAAAdGi3HyoE2effbiLeKYRDCk8eTOvUavlIAWE64cczhxsdPgG0lD2r6AdvQpGJ9mjN&share_author_id=7191447526834357274&sharer_language=en&source=h5_m&u_code=e63e6j55h924kc&timestamp=1779689703&user_id=7191447526834357274&sec_user_id=MS4wLjABAAAAdGi3HyoE2effbiLeKYRDCk8eTOvUavlIAWE64cczhxsdPgG0lD2r6AdvQpGJ9mjN&item_author_type=1&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7584161800318519056&share_link_id=dec8eaab-a2a1-4689-bbf7-967a2b330ce2&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1"
               target="_blank"
               rel="noreferrer"
               className="p-2 rounded-full border border-neutral-250 dark:border-neutral-800 text-neutral-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-white dark:hover:bg-neutral-900 transition-colors"
+              title="TikTok"
             >
-              <Send className="h-4 w-4" />
+              <TiktokIcon className="h-4 w-4" />
             </a>
           </div>
         </div>
@@ -68,7 +84,7 @@ export const Footer: React.FC = () => {
           </h4>
           <div className="flex items-start gap-3 text-xs text-neutral-500 dark:text-neutral-400">
             <MapPin className="h-4 w-4 text-indigo-500 flex-shrink-0 mt-0.5" />
-            <span>rajanganaya, thambuththegama, anuradhapura</span>
+            <span>Rajanganaya, Thambuththegama, Anuradhapura</span>
           </div>
           <div className="flex items-center gap-3 text-xs text-neutral-500 dark:text-neutral-400">
             <Phone className="h-4 w-4 text-indigo-500 flex-shrink-0" />
