@@ -25,9 +25,16 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand Description */}
         <div className="space-y-4">
-          <h2 className="font-heading font-extrabold text-xl tracking-tight text-neutral-800 dark:text-white">
-            {adminSettings.businessName.toUpperCase()}<span className="text-indigo-600 dark:text-indigo-400">.</span>
-          </h2>
+          <div className="flex items-center gap-2.5">
+            <img
+              src="/Logo.png"
+              alt={adminSettings.businessName}
+              className="h-8 w-auto object-contain dark:brightness-110"
+            />
+            <h2 className="font-heading font-extrabold text-xl tracking-tight text-neutral-800 dark:text-white">
+              {adminSettings.businessName.toUpperCase()}<span className="text-indigo-600 dark:text-indigo-400">.</span>
+            </h2>
+          </div>
           <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm">
             Handcrafted premium crochet crop tops and artisan knitwear, custom-made with love and premium sustainably sourced cotton yarn.
           </p>

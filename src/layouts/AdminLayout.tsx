@@ -32,7 +32,11 @@ export const AdminLayout: React.FC = () => {
       <aside className="hidden lg:flex flex-col w-64 border-r border-neutral-900 bg-[#0a0f1d] p-5 h-full">
         {/* Title */}
         <div className="flex items-center gap-2.5 pb-6 border-b border-neutral-900">
-          <ShieldCheck className="h-6 w-6 text-indigo-500" />
+          <img
+            src="/Logo.png"
+            alt={adminSettings.businessName}
+            className="h-8 w-auto object-contain dark:brightness-110"
+          />
           <div>
             <h2 className="font-heading font-extrabold text-sm uppercase tracking-wider">
               {adminSettings.businessName} Admin
@@ -85,16 +89,23 @@ export const AdminLayout: React.FC = () => {
       {/* --- MOBILE TOP BAR --- */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         <header className="lg:hidden h-16 bg-[#0a0f1d] border-b border-neutral-900 px-4 flex items-center justify-between flex-shrink-0">
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
             <button
               onClick={() => setMobileOpen(true)}
-              className="p-2 -ml-2 text-neutral-400 hover:text-neutral-200 rounded-full transition cursor-pointer"
+              className="p-2 -ml-2 text-neutral-400 hover:text-neutral-200 rounded-full transition cursor-pointer flex-shrink-0"
             >
               <Menu className="h-5 w-5" />
             </button>
-            <h2 className="font-heading font-extrabold text-xs uppercase tracking-wider text-neutral-200">
-              {adminSettings.businessName} Admin
-            </h2>
+            <div className="flex items-center gap-2 min-w-0">
+              <img
+                src="/Logo.png"
+                alt={adminSettings.businessName}
+                className="h-6 w-auto object-contain dark:brightness-110 flex-shrink-0"
+              />
+              <h2 className="font-heading font-extrabold text-xs uppercase tracking-wider text-neutral-200 truncate">
+                {adminSettings.businessName} Admin
+              </h2>
+            </div>
           </div>
           <button
             onClick={handleLogout}
@@ -134,8 +145,12 @@ export const AdminLayout: React.FC = () => {
             >
               {/* Header */}
               <div className="flex justify-between items-center pb-5 border-b border-neutral-900">
-                <div className="flex items-center gap-2.5">
-                  <ShieldCheck className="h-5 w-5 text-indigo-500" />
+                <div className="flex items-center gap-2">
+                  <img
+                    src="/Logo.png"
+                    alt={adminSettings.businessName}
+                    className="h-6 w-auto object-contain dark:brightness-110"
+                  />
                   <span className="font-heading font-extrabold tracking-wider uppercase text-xs text-neutral-100">
                     {adminSettings.businessName} Control
                   </span>

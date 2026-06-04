@@ -47,16 +47,19 @@ export const AdminLogin: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md bg-white dark:bg-[#0c111e]/90 border border-neutral-200 dark:border-neutral-900 rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col items-center"
       >
-        <div className="w-12 h-12 rounded-2xl bg-indigo-650/10 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4">
-          <ShieldCheck className="h-6 w-6" />
+        <div className="flex flex-col items-center mb-4">
+          <img
+            src="/Logo.png"
+            alt={adminSettings.businessName}
+            className="h-16 w-auto object-contain dark:brightness-110 mb-4"
+          />
+          <h2 className="font-heading font-extrabold text-xl tracking-tight text-neutral-805 dark:text-white uppercase text-center">
+            {adminSettings.businessName} Staff Access
+          </h2>
+          <p className="text-[10px] text-neutral-450 dark:text-neutral-500 font-bold uppercase tracking-widest mt-1 text-center">
+            Administrative Authorization Portal
+          </p>
         </div>
-
-        <h2 className="font-heading font-extrabold text-xl tracking-tight text-neutral-805 dark:text-white uppercase text-center">
-          {adminSettings.businessName} Staff Access
-        </h2>
-        <p className="text-[10px] text-neutral-450 dark:text-neutral-500 font-bold uppercase tracking-widest mt-1 text-center">
-          Administrative Authorization Portal
-        </p>
 
         {error && (
           <div className="w-full mt-6 p-3 rounded-2xl border border-rose-900/50 bg-rose-950/20 text-rose-400 text-xs font-semibold leading-relaxed">

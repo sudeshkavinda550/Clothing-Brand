@@ -57,8 +57,13 @@ export const Navbar: React.FC = () => {
           </button>
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <h1 className="font-heading font-extrabold text-lg sm:text-xl tracking-widest text-neutral-900 dark:text-white uppercase transition-colors">
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <img
+              src="/Logo.png"
+              alt={adminSettings.businessName}
+              className="h-8 sm:h-10 w-auto object-contain dark:brightness-110 transition-transform duration-300 group-hover:scale-105"
+            />
+            <h1 className="font-heading font-extrabold text-base sm:text-lg tracking-widest text-neutral-900 dark:text-white uppercase transition-colors hidden sm:block">
               {adminSettings.businessName}
               <span className="text-indigo-600 dark:text-indigo-500 group-hover:scale-125 inline-block transition-transform duration-300">.</span>
             </h1>
@@ -310,9 +315,16 @@ export const Navbar: React.FC = () => {
             >
               {/* Header */}
               <div className="p-5 border-b border-neutral-100 dark:border-neutral-900 flex justify-between items-center">
-                <span className="font-heading font-extrabold tracking-widest text-neutral-900 dark:text-white uppercase text-sm">
-                  {adminSettings.businessName}
-                </span>
+                <div className="flex items-center gap-2">
+                  <img
+                    src="/Logo.png"
+                    alt={adminSettings.businessName}
+                    className="h-7 w-auto object-contain dark:brightness-110"
+                  />
+                  <span className="font-heading font-extrabold tracking-widest text-neutral-900 dark:text-white uppercase text-sm">
+                    {adminSettings.businessName}
+                  </span>
+                </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-1.5 rounded-full border border-neutral-150 dark:border-neutral-800 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-55 cursor-pointer"
